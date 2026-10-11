@@ -1,0 +1,33 @@
+name: Booda core checks
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: booda-core-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  core-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      BOODA_AI_PROVIDER: mock
+      BOODA_ALLOW_PAID_API: '0'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install test dependency
+        run: python -m pip install pytest==9.1.1
+      - name: Check tracked Python syntax
+        run: git ls-files -z '*.py' | xargs -0 python -m py_compile
+      - name: Test permissions, approvals, persistence and reasoning guards
+        run: >-
+          python -m pytest -q
+          tests/test_permission.py tests/test_approval.py
+          tests/test_permission_storage.py tests/test_approval_storage.py
+          tests/test_task_storage.py tests/test_reasoning_checks.py

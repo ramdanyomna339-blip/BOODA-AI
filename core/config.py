@@ -1,0 +1,8 @@
+BOODA_NAME = "Booda"
+BOODA_VERSION = "0.1.0"
+BOODA_STATUS = "development"
+BOODA_MODE = "online"
+BOODA_OWNER = "Yomna"
+BOODA_ENVIRONMENT = "development"
+BOODA_OFFLINE_MODE = False
+BOODA_AUTONOMOUS_MODE = False

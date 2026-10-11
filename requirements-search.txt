@@ -1,0 +1,4 @@
+# Optional offline semantic search and scanned-PDF rasterization.
+# Install in the desktop Python environment, separately from the minimal runtime.
+sentence-transformers>=3,<6
+pypdfium2>=4,<6

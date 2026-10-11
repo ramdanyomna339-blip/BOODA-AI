@@ -1,0 +1,12 @@
+pyautogui==0.9.54
+pywinauto>=0.6.9,<0.7
+Pillow>=10.0
+faster-whisper>=1.1,<2
+playwright==1.63.0
+arabic-reshaper==3.0.0
+python-bidi==0.6.7
+pypdf>=6,<7
+openpyxl>=3.1,<4
+defusedxml>=0.7,<1
+youtube-transcript-api==1.2.4
+# Windows OCR wheel: tools/setup_extra_tools.ps1 (Python 3.12 desktop runtime).
